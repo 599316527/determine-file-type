@@ -4,7 +4,8 @@
   "description": "determine file type",
   "main": "bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "browserify -s determineFileType lib/determine.js -o demo/determine-file-type.js"
   },
   "author": "Kyle He",
   "license": "MIT"

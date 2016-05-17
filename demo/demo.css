@@ -1,0 +1,39 @@
+.file-picker {
+
+}
+
+@keyframes loading {
+  0%,
+  100% {
+    content: '|';
+  }
+  25% {
+    content: '/';
+  }
+  50% {
+    content: '-';
+  }
+  75% {
+    content: '\\';
+  }
+}
+
+#loading {
+  display: none;
+  font-weight: bold;
+}
+#loading:after {
+  content: '|';
+  animation: 1s linear infinite loading;
+}
+
+#result {
+  margin-top: 1em;
+  font-size: 1.5em;
+}
+.mime {
+  color: green;
+}
+.err {
+  color: red;
+}
