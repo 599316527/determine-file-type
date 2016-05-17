@@ -56,10 +56,48 @@ module.exports = determine
 const flash = require('../magic/flash')
 const document = require('../magic/document')
 const video = require('../magic/video')
+const audio = require('../magic/audio')
+const image = require('../magic/image')
 
 module.exports = [].concat(flash).concat(document).concat(video)
+  .concat(audio).concat(image)
 
-},{"../magic/document":3,"../magic/flash":4,"../magic/video":5}],3:[function(require,module,exports){
+},{"../magic/audio":3,"../magic/document":4,"../magic/flash":5,"../magic/image":6,"../magic/video":7}],3:[function(require,module,exports){
+
+module.exports = [
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'string',
+        match: 'ID3',
+        description: 'MPEG-1 Audio Layer 3 (MP3) audio file'
+      }
+    ],
+    mime: 'audio/x-mpeg-3',
+    extension: 'mp3'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'string',
+        match: 'RIFF',
+        description: 'Audio for Windows file'
+      },
+      {
+        offset: 8,
+        type: 'string',
+        match: 'WAVEfmt',
+        description: ''
+      }
+    ],
+    mime: 'audio/wav',
+    extension: 'wav'
+  }
+]
+
+},{}],4:[function(require,module,exports){
 
 module.exports = [
   {
@@ -88,7 +126,7 @@ module.exports = [
   }
 ]
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 
 module.exports = [
   {
@@ -160,7 +198,129 @@ module.exports = [
   }
 ]
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
+
+module.exports = [
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'bytes',
+        match: [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A],
+        description: 'Portable Network Graphics file'
+      }
+    ],
+    mime: 'image/png',
+    extension: 'png'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'bytes',
+        match: [0xFF, 0xD8, 0xFF, 0xE0],
+        description: 'JPEG/JFIF graphics file'
+      },
+      {
+        offset: 6,
+        type: 'bytes',
+        match: [0x4A, 0x46, 0x49, 0x46, 0x00]
+      }
+    ],
+    mime: 'image/jpeg',
+    extension: 'jpg'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'bytes',
+        match: [0xFF, 0xD8, 0xFF, 0xE1],
+        description: 'Digital camera JPG using Exchangeable Image File Format (EXIF)'
+      },
+      {
+        offset: 6,
+        type: 'bytes',
+        match: [0x45, 0x78, 0x69, 0x66, 0x00]
+      }
+    ],
+    mime: 'image/jpeg',
+    extension: 'jpg'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'bytes',
+        match: [0xFF, 0xD8, 0xFF, 0xE8],
+        description: 'Still Picture Interchange File Format (SPIFF)'
+      },
+      {
+        offset: 6,
+        type: 'bytes',
+        match: [0x53, 0x50, 0x49, 0x46, 0x46, 0x00]
+      }
+    ],
+    mime: 'image/jpeg',
+    extension: 'jpg'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'bytes',
+        match: [0x49, 0x20, 0x49],
+        description: 'Tagged Image File Format file'
+      }
+    ],
+    mime: 'image/tiff',
+    extension: 'tif'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'string',
+        match: 'GIF87a',
+        description: 'Graphics interchange format file'
+      }
+    ],
+    mime: 'image/gif',
+    extension: 'gif'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'string',
+        match: 'GIF89a',
+        description: 'Graphics interchange format file'
+      }
+    ],
+    mime: 'image/gif',
+    extension: 'gif'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'string',
+        match: 'RIFF',
+        description: 'Google WebP image file'
+      },
+      {
+        offset: 8,
+        type: 'string',
+        match: 'WEBP',
+        description: ''
+      }
+    ],
+    mime: 'image/webp',
+    extension: 'webp'
+  }
+]
+
+},{}],7:[function(require,module,exports){
 
 module.exports = [
   {
