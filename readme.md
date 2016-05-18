@@ -20,8 +20,8 @@ let {mime} = determine([0x78, 0x01, 0x73, 0x0D, 0x62, 0x62, 0x60, ...])
 ```
 
 Specific usage:
-[Node](599316527/determine-file-type/blob/master/bin/index.js#L19-28)
-[Web](/599316527/determine-file-type/blob/master/demo/demo.js#L6-7)
+[Node](/bin/index.js#L19-28)
+[Web](/demo/demo.js#L6-7)
 
 ##### TODO
 * [ ] Fill up magic data
