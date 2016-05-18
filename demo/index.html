@@ -10,13 +10,36 @@
   <h1>Determine File Type</h1>
 
   <div class="file-picker">
-    <input type="file" id="file" />
-    <span id="loading"></span>
+    <div>
+      <input type="file" id="file" />
+      <span class="loading"></span>
+    </div>
+    <div class="bin-header"></div>
   </div>
 
-  <div id="result"></div>
+  <div class="result">
+    <div class="col by-filename">
+      <h5>By Filename Extension</h5>
+      <dl>
+        <dt>Ext</dt>
+        <dd class="ext"></dd>
+        <dt>Mime</dt>
+        <dd class="mime"></dd>
+      </dl>
+    </div>
+    <div class="col by-binary">
+      <h5>By Binary Header</h5>
+      <dl>
+        <dt>Ext</dt>
+        <dd class="ext"></dd>
+        <dt>Mime</dt>
+        <dd class="mime"></dd>
+      </dl>
+    </div>
+  </div>
 
   <script type="text/javascript" src="determine-file-type.js"></script>
+  <script type="text/javascript" src="mime.types.js"></script>
   <script type="text/javascript" src="demo.js"></script>
 </body>
 </html>

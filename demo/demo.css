@@ -1,5 +1,12 @@
-.file-picker {
+.file-picker input {
+  font-size: 20px;
+  line-height: 1;
+}
 
+.bin-header {
+  margin-top: 10px;
+  color: gray;
+  font-size: .95em;
 }
 
 @keyframes loading {
@@ -18,22 +25,44 @@
   }
 }
 
-#loading {
+.loading {
   display: none;
   font-weight: bold;
 }
-#loading:after {
+.loading:after {
   content: '|';
   animation: 1s linear infinite loading;
 }
 
-#result {
+.result {
   margin-top: 1em;
   font-size: 1.5em;
+  display: flex;
+  justify-content: space-around;
 }
-.mime {
+.result .col {
+  flex: 1 1 200px;
+}
+.result .by-binary {
+  margin-left: 1em;
+  padding-left: 1em;
+  border-left: 1px solid #CCC;
+}
+.result dl {
+  display: flex;
+}
+.result dt {
+  flex: 1 2 20px;
+}
+.result dd {
+  flex: 2 1 50px;
+}
+.result .mime {
   color: green;
 }
-.err {
+.result .err {
   color: red;
+}
+.result .ext {
+  color: goldenrod;
 }

@@ -22,6 +22,9 @@ function determine(buff) {
   var magic
   for (var i = 0; i < magicList.length; i++) {
     magic = magicList[i]
+    // if (magic.extension === 'm4a') {
+    //   debugger
+    // }
     if (matchHeader(buff, magic.header)) {
       return magic
     }
@@ -94,6 +97,36 @@ module.exports = [
     ],
     mime: 'audio/wav',
     extension: 'wav'
+  },
+  {
+    header: [
+      {
+        offset: 4,
+        type: 'bytes',
+        match: [0x66, 0x74, 0x79, 0x70, 0x4D, 0x34, 0x41, 0x20],
+        description: 'Apple Lossless Audio Codec file'
+      }
+    ],
+    mime: 'audio/m4a',
+    extension: 'm4a'
+  },
+  {
+    header: [
+      {
+        offset: 0,
+        type: 'bytes',
+        match: [0x00, 0x00, 0x00, 0x20],
+        description: 'Apple Lossless Audio Codec file'
+      },
+      {
+        offset: 4,
+        type: 'string',
+        match: 'ftypM4A ',
+        description: ''
+      }
+    ],
+    mime: 'audio/m4a',
+    extension: 'm4a'
   }
 ]
 
