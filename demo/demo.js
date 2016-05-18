@@ -4,7 +4,7 @@ var $loading = document.getElementById('loading')
 
 var reader = new FileReader()
 reader.addEventListener('load', function (evt) {
-  var determined = determineFileType((new Int8Array(evt.target.result)).slice(0, 128))
+  var determined = determineFileType(new Uint8Array(evt.target.result.slice(0, 128)))
   $result.innerHTML = determined
     ? `<span class="mime">${determined.mime}</span>`
     : '<span class="err">Unknown file type</span>'

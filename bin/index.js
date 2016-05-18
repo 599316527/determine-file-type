@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var fs = require('fs')
 var determine = require('../lib/determine')
 var argv = require('optimist').argv
